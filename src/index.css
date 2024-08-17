@@ -1,13 +1,146 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .main-layout {
+    @apply h-screen;
+    @apply overflow-y-hidden;
+    @apply flex;
+    @apply transition-all;
+  }
+  .main-content {
+    @apply flex-1;
+    @apply flex;
+    @apply flex-col;
+    @apply justify-start;
+    @apply overflow-hidden;
+    @apply h-full;
+    @apply bg-primary-50;
+  }
+  header {
+    @apply flex-shrink-0;
+    @apply flex;
+    @apply items-center;
+    @apply justify-between;
+    @apply p-2;
+    @apply bg-primary-50;
+  }
+  .aside {
+    @apply bg-primary-300;
+    @apply transition;
+    @apply transform;
+    @apply duration-300;
+    @apply fixed;
+    @apply inset-y-0;
+    @apply z-10;
+    @apply w-64;
+    @apply max-h-screen;
+    @apply flex;
+    @apply flex-col;
+    @apply flex-shrink-0;
+    @apply shadow-lg;
+    @apply lg:static;
+    @apply lg:z-auto;
+    @apply lg:shadow-none;
+    @apply border-r;
+    @apply border-r-primary-200
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer base {
+  h1 {
+    @apply text-7xl;
+  }
+
+  h2 {
+    @apply text-6xl;
+  }
+
+  h3 {
+    @apply text-5xl;
+  }
+
+  h4 {
+    @apply text-4xl;
+  }
+
+  h5 {
+    @apply text-3xl;
+  }
+
+  h6 {
+    @apply text-2xl;
+  }
+
+  p {
+    @apply text-lg;
+  }
+
+  small {
+    @apply text-xs;
+  }
+
+  label {
+    @apply text-base;
+    @apply font-light;
+    @apply leading-none;
+    @apply text-gray-500;
+  }
+
+  input {
+    @apply w-full;
+    @apply h-12;
+    @apply bg-gray-100;
+    @apply text-gray-700;
+    @apply outline;
+    @apply outline-0;
+    @apply focus:outline-0;
+    @apply disabled:bg-gray-50;
+    @apply disabled:border-0;
+    @apply transition-all;
+    @apply placeholder-shown:border;
+    @apply placeholder-shown:border-gray-200;
+    @apply placeholder-shown:border-t-gray-200;
+    @apply border;
+    @apply focus:border-2;
+    @apply border-t-transparent;
+    @apply focus:border-t-transparent;
+    @apply text-sm;
+    @apply px-3;
+    @apply py-2.5;
+    @apply rounded-[7px];
+    @apply focus:border-primary-500;
+  }
+
+  textarea {
+    @apply w-full;
+    @apply bg-gray-100;
+    @apply text-gray-700;
+    @apply outline;
+    @apply outline-0;
+    @apply focus:outline-0;
+    @apply disabled:bg-gray-50;
+    @apply disabled:border-0;
+    @apply transition-all;
+    @apply placeholder-shown:border;
+    @apply placeholder-shown:border-gray-200;
+    @apply placeholder-shown:border-t-gray-200;
+    @apply border;
+    @apply focus:border-2;
+    @apply border-t-transparent;
+    @apply focus:border-t-transparent;
+    @apply text-sm;
+    @apply px-3;
+    @apply py-2.5;
+    @apply rounded-[7px];
+    @apply focus:border-primary-500;
+  }
+  button {
+    @apply p-2;
+    @apply rounded-md;
+    @apply focus:outline-none;
+    @apply focus:ring;
+    @apply border;
+  }
 }

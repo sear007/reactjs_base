@@ -1,25 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
+import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
 import './App.css';
+import Home from './screens/Home';
+import Login from './screens/Login';
+import Register from './screens/Register';
+import { AuthProvider, useAuth } from './context/AuthContext';
+import AuthLayout from './components/AuthLayout';
+import NotFound from './screens/404';
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      Component: AuthLayout,
+      children: [
+        { index: true, Component: Home },
+      ],
+    },
+    {
+      path: '/login',
+      Component: Login,
+    },
+    {
+      path: '/register',
+      Component: Login,
+    },
+    {
+      path: '*',
+      Component: NotFound,
+    },
+  ]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthProvider>
+      <RouterProvider
+        router={router}
+        fallbackElement={'Loading'}
+      />
+    </AuthProvider>
   );
 }
 
